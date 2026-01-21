@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get in Touch - Hub 17 Innovation Space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --gold: #FFD700;
+            --gold-light: #FFE55C;
+            --gold-dark: #E6C300;
+            --blue: #1DA1F2;
+            --dark-bg: #0A0A14;
+            --dark-card: #12121F;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--dark-bg);
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        /* Animated Background */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 15% 15%, rgba(255, 215, 0, 0.03) 0%, transparent 25%),
+                radial-gradient(circle at 85% 85%, rgba(29, 161, 242, 0.02) 0%, transparent 25%),
+                linear-gradient(135deg, #0A0A14 0%, #1A1A2E 50%, #0F0F1E 100%);
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: floatParticle 20s infinite linear;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate(100vw, 100vh) rotate(360deg);
+            }
+        }
+
+        /* Main Container */
+        .contact-page {
+            max-width: 1200px;
+            width: 100%;
+            z-index: 1;
+        }
+
+        /* Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: black;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .page-badge:hover::before {
+            left: 100%;
+        }
+
+        .page-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1;
+            position: relative;
+        }
+
+        .page-title-main {
+            display: block;
+            background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+        }
+
+        .page-title-sub {
+            display: block;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3.5rem;
+            margin-top: 10px;
+        }
+
+        .page-description {
+            max-width: 700px;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 40px auto 0;
+            padding: 30px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            position: relative;
+        }
+
+        .page-description::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), var(--blue));
+        }
+
+        /* Contact Content */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            background: linear-gradient(145deg, 
+                rgba(18, 18, 31, 0.9) 0%, 
+                rgba(18, 18, 31, 0.95) 100%);
+            border-radius: 30px;
+            padding: 60px 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), var(--blue));
+        }
+
+        .form-title {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--gold);
+        }
+
+        .form-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: white;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: black;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.4);
+        }
+
+        .form-submit:hover::before {
+            left: 100%;
+        }
+
+        /* Contact Info */
+        .contact-info-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 60px 50px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .info-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: white;
+            text-align: center;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .info-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 215, 0, 0.05);
+            border-color: rgba(255, 215, 0, 0.2);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: black;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .info-content p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 5px;
+        }
+
+        .info-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .info-link:hover {
+            gap: 12px;
+        }
+
+        /* Response Time */
+        .response-time {
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            text-align: center;
+        }
+
+        .response-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .response-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .contact-footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--blue));
+            transform-origin: 0%;
+            z-index: 1000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .page-title {
+                font-size: 3.5rem;
+            }
+            
+            .page-title-sub {
+                font-size: 2.8rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.8rem;
+            }
+            
+            .page-title-sub {
+                font-size: 2.2rem;
+            }
+            
+            .page-description {
+                padding: 25px;
+                font-size: 1.1rem;
+            }
+            
+            .contact-form-section,
+            .contact-info-section {
+                padding: 40px 30px;
+            }
+            
+            .form-title {
+                font-size: 1.8rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-card {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2.3rem;
+            }
+            
+            .page-title-sub {
+                font-size: 1.8rem;
+            }
+            
+            .page-badge {
+                font-size: 0.75rem;
+                padding: 10px 20px;
+            }
+            
+            .form-input, .form-select, .form-textarea {
+                padding: 16px 20px;
+            }
+            
+            .info-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .info-icon {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Animated Background -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Main Container -->
+    <div class="contact-page">
+        <!-- Header -->
+        <div class="page-header">
+            <div class="page-badge">
+                <i class="fas fa-comments"></i>
+                DIRECT COMMUNICATION
+            </div>
+            <h1 class="page-title">
+                <span class="page-title-main">GET IN TOUCH</span>
+                <span class="page-title-sub">We're Here to Listen</span>
+            </h1>
+            <div class="page-description">
+                Have questions, ideas, or partnership opportunities? Our team is ready to connect with you. 
+                Fill out the form below, and we'll respond within 24-48 hours.
+            </div>
+        </div>
+
+        <!-- Contact Content -->
+        <div class="contact-content">
+            <!-- Contact Form -->
+            <div class="contact-form-section">
+                <h2 class="form-title">Send Us a Message</h2>
+                <p class="form-subtitle">
+                    Whether you're interested in collaboration, have questions about our work, 
+                    or want to discuss potential partnerships, we'd love to hear from you.
+                </p>
+                
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">First Name *</label>
+                            <input type="text" class="form-input" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name *</label>
+                            <input type="text" class="form-input" placeholder="Doe" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email Address *</label>
+                        <input type="email" class="form-input" placeholder="john.doe@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Organization</label>
+                        <input type="text" class="form-input" placeholder="Your Company/Organization">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Inquiry Type *</label>
+                        <select class="form-select" required>
+                            <option value="">Select an option</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="collaboration">Project Collaboration</option>
+                            <option value="information">Information Request</option>
+                            <option value="media">Media Inquiry</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Your Message *</label>
+                        <textarea class="form-textarea" placeholder="Tell us about your inquiry..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info-section">
+                <h2 class="info-title">Other Ways to Connect</h2>
+                
+                <div class="info-grid">
+                    <!-- Email -->
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email Inquiries</h3>
+                            <p>General: info@hub17.org</p>
+                            <p>Partnerships: partnerships@hub17.org</p>
+                            <p>Media: press@hub17.org</p>
+                            <a href="mailto:info@hub17.org" class="info-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Send an Email
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Phone Support</h3>
+                            <p>Global: +1 (234) 567-8900</p>
+                            <p>East Africa: +254 700 000 000</p>
+                            <p>Hours: Mon-Fri, 9 AM - 5 PM GMT</p>
+                            <a href="tel:+12345678900" class="info-link">
+                                <i class="fas fa-phone-alt"></i>
+                                Call Us
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Visit -->
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Visit Our Offices</h3>
+                            <p>Nairobi, Kenya</p>
+                            <p>New York, USA</p>
+                            <p>Geneva, Switzerland</p>
+                            <a href="locations.html" class="info-link">
+                                <i class="fas fa-directions"></i>
+                                View All Locations
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Social -->
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Social Media</h3>
+                            <p>Twitter: @Hub17Innovation</p>
+                            <p>LinkedIn: Hub 17 Innovation Space</p>
+                            <p>Instagram: @hub17.innovation</p>
+                            <a href="contact.html" class="info-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                All Social Platforms
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Response Time -->
+                <div class="response-time">
+                    <h3 class="response-title">Our Response Commitment</h3>
+                    <p class="response-text">
+                        We strive to respond to all inquiries within <strong>24-48 hours</strong> during business days. 
+                        For urgent matters, please call our main office number.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="contact-footer">
+            <p class="footer-text">
+                © 2024 Hub 17 Innovation Space. All inquiries are handled with confidentiality and 
+                in accordance with our <a href="#" style="color: var(--gold); text-decoration: none;">Privacy Policy</a>.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Generate particles for background
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 80 + 40;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 30 + 20;
+                const delay = Math.random() * -20;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${x}vw`;
+                particle.style.top = `${y}vh`;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Form submission
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contactForm');
+            const submitBtn = form.querySelector('.form-submit');
+            
+            // Get form data
+            const formData = new FormData(form);
+            const name = formData.get('first') + ' ' + formData.get('last');
+            
+            // Show loading state
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Show success state
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                submitBtn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%)';
+                
+                // Reset form
+                form.reset();
+                
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.style.cssText = `
+                    margin-top: 20px;
+                    padding: 15px;
+                    background: rgba(76, 175, 80, 0.1);
+                    border: 1px solid rgba(76, 175, 80, 0.3);
+                    border-radius: 10px;
+                    color: #4CAF50;
+                    text-align: center;
+                `;
+                successMessage.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    Thank you, ${name}! Your message has been sent. We'll contact you within 24-48 hours.
+                `;
+                
+                form.appendChild(successMessage);
+                
+                // Remove success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.remove();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = 'linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%)';
+                    submitBtn.disabled = false;
+                }, 5000);
+            }, 2000);
+        }
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.info-card, .form-group');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight * 0.85) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            
+            // Set initial states for animation
+            document.querySelectorAll('.info-card, .form-group').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Form submission
+            document.getElementById('contactForm').addEventListener('submit', handleFormSubmit);
+            
+            // Animate info cards on hover
+            document.querySelectorAll('.info-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const icon = card.querySelector('.info-icon');
+                    icon.style.transform = 'scale(1.1) rotate(5deg)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    const icon = card.querySelector('.info-icon');
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+            
+            // Trigger initial animation
+            setTimeout(() => {
+                animateOnScroll();
+            }, 100);
+        });
+    </script>
+</body>
+</html>
