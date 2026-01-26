@@ -81,7 +81,7 @@
                     window.open(shareUrl, '_blank', 'width=600,height=400');
                 } else if (platform === 'youtube') {
                     // YouTube channel link
-                    window.open('https://www.youtube.com/channel/UCOAn2YmSvJQS0clhdqciKFQ', '_blank');
+                    window.open('https://www.youtube.com/@Hub17Innovationspace', '_blank');
                 }
             });
         });
