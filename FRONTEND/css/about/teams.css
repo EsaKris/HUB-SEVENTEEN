@@ -280,13 +280,14 @@ h1, h2, h3, h4 {
     margin-bottom: 25px;
 }
 
+
 .social-links {
     display: flex;
     gap: 15px;
     margin-top: 20px;
 }
 
-.social-link {
+   .social-link {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -299,8 +300,8 @@ h1, h2, h3, h4 {
     text-decoration: none;
     transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
-}
+        overflow: hidden;
+}  
 
 .social-link::before {
     content: '';
@@ -326,7 +327,7 @@ h1, h2, h3, h4 {
 
 .social-link:hover::before {
     opacity: 1;
-}
+} */
 
 /* Specific social colors on hover */
 .social-link[href*="linkedin"]:hover { background: #0077B5; }
