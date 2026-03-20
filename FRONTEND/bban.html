@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Benue Business Angels Network (BBAN) | Hub 17</title>
+  <meta name="description" content="The Benue Business Angels Network (BBAN) connects early-stage entrepreneurs with investors, mentors and funding. Pitch your startup or become an Angel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #FFD700;
+      --gold2: #FFA500;
+      --dark: #080808;
+      --dark2: #111;
+      --dark3: #1a1a1a;
+      --text: rgba(255, 255, 255, .85);
+      --text-muted: rgba(255, 255, 255, .55);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* BBAN NAV - MOBILE RESPONSIVE */
+    .bban-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(8, 8, 8, .95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 215, 0, .1);
+      padding: 0 20px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .bban-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .bban-logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #000;
+      font-size: 1rem;
+    }
+
+    .bban-logo-text {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .bban-logo-text span {
+      color: var(--gold);
+    }
+
+    .bban-nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .bban-nav-links a {
+      color: rgba(255, 255, 255, .75);
+      text-decoration: none;
+      font-size: .8rem;
+      font-weight: 500;
+      transition: color .3s;
+    }
+
+    .bban-nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .bban-nav-ctas {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: .85rem;
+      cursor: pointer;
+      transition: all .3s;
+      text-decoration: none;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      white-space: nowrap;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #000;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 215, 0, .35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    .back-link {
+      color: rgba(255, 255, 255, .5);
+      text-decoration: none;
+      font-size: .8rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color .3s;
+    }
+
+    .back-link:hover {
+      color: var(--gold);
+    }
+
+    /* HERO - SIDE BY SIDE LAYOUT */
+    .bban-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 72px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(255, 215, 0, .06) 0%, transparent 70%);
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1800&q=70') center/cover no-repeat;
+      opacity: .08;
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 215, 0, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 215, 0, .03) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 215, 0, .08);
+      border: 1px solid rgba(255, 215, 0, .2);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .hero-eyebrow::before {
+      content: '●';
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: .4;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    .hero-h1 {
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-h1 .gold {
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-h1 .italic {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .hero-p {
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      max-width: 540px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .hero-cta-group .btn {
+      white-space: normal;
+      text-align: center;
+      padding: 12px 24px;
+      font-size: .9rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .hero-stat {
+      text-align: center;
+      padding: 16px 10px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 215, 0, .1);
+      border-radius: 14px;
+    }
+
+    .hero-stat-num {
+      font-size: clamp(1.2rem, 5vw, 2rem);
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: .7rem;
+      color: rgba(255, 255, 255, .55);
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .tv-frame {
+      background: linear-gradient(145deg, #1a1a1a, #111);
+      border: 2px solid rgba(255, 215, 0, .2);
+      border-radius: 20px;
+      padding: 4px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(255, 215, 0, .1);
+    }
+
+    .tv-screen {
+      background: var(--dark3);
+      border-radius: 16px;
+      aspect-ratio: 16/10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+    }
+
+    .tv-screen-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 40%, rgba(255, 215, 0, .07), transparent 60%);
+    }
+
+    .tv-screen-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .bban-badge {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #000;
+      margin: 0 auto 12px;
+      font-weight: 900;
+    }
+
+    .tv-screen-content h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .tv-screen-content p {
+      color: rgba(255, 255, 255, .6);
+      font-size: .8rem;
+      line-height: 1.4;
+    }
+
+    .live-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 0, 0, .9);
+      color: #fff;
+      font-size: .65rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: .5px;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      animation: blink .8s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .episode-counter {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      font-size: .7rem;
+      color: rgba(255, 255, 255, .5);
+      background: rgba(0, 0, 0, .5);
+      padding: 4px 8px;
+      border-radius: 8px;
+    }
+
+    /* SECTION COMMON - MOBILE */
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-alt {
+      background: #0e0e0e;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-label {
+      display: inline-block;
+      background: rgba(255, 215, 0, .08);
+      color: var(--gold);
+      border: 1px solid rgba(255, 215, 0, .2);
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-title span {
+      color: var(--gold);
+    }
+
+    .section-lead {
+      color: var(--text-muted);
+      font-size: .9rem;
+      line-height: 1.65;
+      max-width: 680px;
+    }
+
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-header-center .section-lead {
+      margin: 0 auto;
+    }
+
+    .gold-line {
+      height: 2px;
+      width: 50px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 12px 0;
+    }
+
+    /* CARDS */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .bban-card {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 18px;
+      padding: 28px;
+      transition: all .35s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bban-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s;
+    }
+
+    .bban-card:hover {
+      border-color: rgba(255, 215, 0, .25);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .5);
+    }
+
+    .bban-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .card-icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: rgba(255, 215, 0, .08);
+      border: 1px solid rgba(255, 215, 0, .15);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      transition: all .3s;
+    }
+
+    .bban-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .bban-card p {
+      color: var(--text-muted);
+      font-size: .85rem;
+      line-height: 1.6;
+    }
+
+    /* ANGEL PROFILES */
+    .angels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .angel-card {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: all .3s;
+    }
+
+    .angel-card:hover {
+      border-color: rgba(255, 215, 0, .3);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, .4);
+    }
+
+    .angel-photo {
+      height: 200px;
+      background: linear-gradient(135deg, #1a1a1a, #222);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 215, 0, .3);
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .angel-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 215, 0, .9);
+      color: #000;
+      font-size: .65rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .angel-info {
+      padding: 20px;
+    }
+
+    .angel-info h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .angel-sector {
+      font-size: .75rem;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .angel-info p {
+      color: var(--text-muted);
+      font-size: .8rem;
+      line-height: 1.55;
+    }
+
+    .angel-socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .angel-social-btn {
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, .05);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, .6);
+      font-size: .8rem;
+      transition: all .3s;
+      text-decoration: none;
+    }
+
+    .angel-social-btn:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    /* HOW IT WORKS STEPS */
+    .step {
+      text-align: center;
+      padding: 30px 16px;
+      position: relative;
+    }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #000;
+      font-size: 1.3rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .step h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      color: var(--text-muted);
+      font-size: .85rem;
+      line-height: 1.6;
+    }
+
+    .step-connector {
+      display: none;
+    }
+
+    /* EPISODES */
+    .episodes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .episode-card {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all .3s;
+    }
+
+    .episode-thumb {
+      height: 160px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: rgba(255, 215, 0, .3);
+      font-size: 2.5rem;
+    }
+
+    .play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, .4);
+      transition: background .3s;
+    }
+
+    .play-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 215, 0, .9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 1rem;
+      padding-left: 3px;
+    }
+
+    .episode-info {
+      padding: 18px;
+    }
+
+    .ep-num {
+      font-size: .7rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+
+    .episode-info h4 {
+      font-size: .9rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      line-height: 1.4;
+    }
+
+    .ep-meta {
+      font-size: .75rem;
+      color: rgba(255, 255, 255, .4);
+    }
+
+    /* FAQ */
+    .faq-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .faq-q {
+      padding: 16px 18px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, .02);
+    }
+
+    .faq-q h4 {
+      font-size: .9rem;
+      font-weight: 600;
+      line-height: 1.4;
+      flex: 1;
+      padding-right: 12px;
+    }
+
+    .faq-q i {
+      color: var(--gold);
+      transition: transform .3s;
+    }
+
+    .faq-item.open .faq-q i {
+      transform: rotate(180deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 400px;
+    }
+
+    .faq-a-inner {
+      padding: 0 18px 18px;
+      color: var(--text-muted);
+      font-size: .85rem;
+      line-height: 1.65;
+    }
+
+    /* APPLY SECTION */
+    .apply-tabs {
+      display: flex;
+      border: 1px solid rgba(255, 215, 0, .2);
+      border-radius: 12px;
+      overflow: hidden;
+      max-width: 320px;
+      margin: 0 auto 40px;
+    }
+
+    .apply-tab {
+      flex: 1;
+      padding: 12px 8px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: .8rem;
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, .6);
+      font-family: 'Poppins', sans-serif;
+      transition: all .3s;
+    }
+
+    .apply-tab.active {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #000;
+    }
+
+    .apply-form-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 20px;
+      padding: 30px 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: .8rem;
+      color: rgba(255, 255, 255, .6);
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 10px;
+      color: #fff;
+      font-size: .85rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: rgba(255, 215, 0, .04);
+    }
+
+    textarea.form-control {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* CTA STRIP */
+    .cta-strip {
+      background: linear-gradient(135deg, rgba(255, 215, 0, .12), rgba(255, 165, 0, .06));
+      border-top: 1px solid rgba(255, 215, 0, .15);
+      border-bottom: 1px solid rgba(255, 215, 0, .15);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    /* FOOTER */
+    .bban-footer {
+      background: #050505;
+      border-top: 1px solid rgba(255, 215, 0, .08);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      text-align: center;
+    }
+
+    .bban-footer-copy {
+      color: rgba(255, 255, 255, .4);
+      font-size: .75rem;
+    }
+
+    .bban-footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .bban-footer-links a {
+      color: rgba(255, 255, 255, .4);
+      text-decoration: none;
+      font-size: .75rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .bban-nav-links {
+        display: none;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-visual {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .bban-nav .bban-nav-ctas .back-link {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 50px 0;
+      }
+
+      .hero-stats {
+        gap: 8px;
+      }
+
+      .hero-stat {
+        padding: 12px 6px;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      animation: fadeUp .8s ease forwards;
+    }
+
+    .d1 {
+      animation-delay: .1s;
+      opacity: 0;
+    }
+
+    .d2 {
+      animation-delay: .2s;
+      opacity: 0;
+    }
+
+    .d3 {
+      animation-delay: .3s;
+      opacity: 0;
+    }
+
+    .d4 {
+      animation-delay: .4s;
+      opacity: 0;
+    }
+
+    .d5 {
+      animation-delay: .5s;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BBAN NAV -->
+  <nav class="bban-nav">
+    <a href="index.html" class="bban-logo">
+      <div class="bban-logo-icon">B</div>
+      <span class="bban-logo-text"><span>BBAN</span> — Hub 17</span>
+    </a>
+    <div class="bban-nav-links">
+      <a href="#about">About</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#angels">Meet Angels</a>
+      <a href="#episodes">Episodes</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="bban-nav-ctas">
+      <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Hub 17 Main Site</a>
+      <a href="#apply" class="btn btn-gold"><i class="fas fa-rocket"></i> Apply Now</a>
+    </div>
+  </nav>
+
+  <!-- HERO - SIDE BY SIDE LAYOUT -->
+  <section class="bban-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-eyebrow fade-up"><i class="fas fa-circle"></i> Nigeria's Premier Angel Pitch Program</div>
+        <h1 class="hero-h1 fade-up d1">
+          <span class="italic">Benue Business</span>
+          <span class="gold">Angels Network</span>
+        </h1>
+        <p class="hero-p fade-up d2">Inspired by Shark Tank &amp; Lion's Den — BBAN connects Benue's boldest entrepreneurs with investors, mentors, and the capital they need to go from idea to impact.</p>
+        <div class="hero-cta-group fade-up d3">
+          <a href="#apply" class="btn btn-gold"><i class="fas fa-microphone"></i> Pitch to Angels</a>
+          <a href="#angels" class="btn btn-outline"><i class="fas fa-star"></i> Become an Angel</a>
+        </div>
+        <div class="hero-stats fade-up d4">
+          <div class="hero-stat">
+            <div class="hero-stat-num">₦10M+</div>
+            <div class="hero-stat-label">Available Funding</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">50+</div>
+            <div class="hero-stat-label">Startups Supported</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">3</div>
+            <div class="hero-stat-label">Seasons Complete</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual fade-up d5">
+        <div class="tv-frame">
+          <div class="tv-screen">
+            <div class="tv-screen-bg"></div>
+            <div class="live-badge"><span class="live-dot"></span> LIVE NOW</div>
+            <div class="tv-screen-content">
+              <div class="bban-badge">B</div>
+              <h3>BBAN Season 3</h3>
+              <p>Watch entrepreneurs pitch live to<br>Benue's top business angels</p>
+              <a href="#episodes" class="btn btn-gold" style="margin-top:16px; font-size:.75rem; padding:8px 18px;"><i class="fas fa-play"></i> Watch Episodes</a>
+            </div>
+            <div class="episode-counter">Season 3 · Episode 4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="section section-alt" id="about">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 50px; align-items: center;">
+        <div>
+          <div class="section-label">What Is BBAN?</div>
+          <h2 class="section-title">Built to <span>Bridge the Gap</span></h2>
+          <div class="gold-line"></div>
+          <p class="section-lead" style="margin-bottom: 20px;">The Benue Business Angels Network (BBAN) is an initiative designed to support the growth and development of nano and micro businesses, as well as startups in Benue State.</p>
+          <p style="color: var(--text-muted); line-height: 1.75; margin-bottom: 20px;">Inspired by popular business shows like Shark Tank and Lions' Den, BBAN bridges the gap between early-stage entrepreneurs and investors — providing mentorship, technical support, and funding.</p>
+          <p style="color: var(--text-muted); line-height: 1.75; margin-bottom: 32px;">The network also produces a televised series where entrepreneurs pitch live to the angels, showcasing the entrepreneurial spirit of Benue State for the world to see.</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div style="background: rgba(255, 215, 0, .06); border: 1px solid rgba(255, 215, 0, .12); border-radius: 12px; padding: 20px; text-align: center;">
+              <div style="font-size: 1.8rem; color: var(--gold); margin-bottom: 8px;"><i class="fas fa-dollar-sign"></i></div>
+              <h4 style="font-size: .85rem; margin-bottom: 4px;">Seed Funding</h4>
+              <p style="font-size: .75rem; color: var(--text-muted);">Direct investment from angels</p>
+            </div>
+            <div style="background: rgba(255, 215, 0, .06); border: 1px solid rgba(255, 215, 0, .12); border-radius: 12px; padding: 20px; text-align: center;">
+              <div style="font-size: 1.8rem; color: var(--gold); margin-bottom: 8px;"><i class="fas fa-broadcast-tower"></i></div>
+              <h4 style="font-size: .85rem; margin-bottom: 4px;">Media Exposure</h4>
+              <p style="font-size: .75rem; color: var(--text-muted);">Televised pitch episodes</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card-grid">
+            <div class="bban-card" style="padding: 24px;">
+              <div style="display: flex; gap: 16px; align-items: flex-start;">
+                <div class="card-icon-wrap" style="flex-shrink: 0; width: 48px; height: 48px;"><i class="fas fa-coins"></i></div>
+                <div>
+                  <h4 style="margin-bottom: 6px; font-size: .9rem;">Facilitate Access to Capital</h4>
+                  <p style="font-size: .85rem;">Provide funding opportunities for startups and small businesses in Benue State through direct angel investment.</p>
+                </div>
+              </div>
+            </div>
+            <div class="bban-card" style="padding: 24px;">
+              <div style="display: flex; gap: 16px; align-items: flex-start;">
+                <div class="card-icon-wrap" style="flex-shrink: 0; width: 48px; height: 48px;"><i class="fas fa-chalkboard-teacher"></i></div>
+                <div>
+                  <h4 style="margin-bottom: 6px; font-size: .9rem;">Mentorship &amp; Technical Support</h4>
+                  <p style="font-size: .85rem;">Expert guidance and resources to help businesses grow, scale, and succeed in competitive markets.</p>
+                </div>
+              </div>
+            </div>
+            <div class="bban-card" style="padding: 24px;">
+              <div style="display: flex; gap: 16px; align-items: flex-start;">
+                <div class="card-icon-wrap" style="flex-shrink: 0; width: 48px; height: 48px;"><i class="fas fa-lightbulb"></i></div>
+                <div>
+                  <h4 style="margin-bottom: 6px; font-size: .9rem;">Foster Innovation</h4>
+                  <p style="font-size: .85rem;">Support innovative ideas that contribute to economic growth and self-sufficiency across Benue and Nigeria.</p>
+                </div>
+              </div>
+            </div>
+            <div class="bban-card" style="padding: 24px;">
+              <div style="display: flex; gap: 16px; align-items: flex-start;">
+                <div class="card-icon-wrap" style="flex-shrink: 0; width: 48px; height: 48px;"><i class="fas fa-tv"></i></div>
+                <div>
+                  <h4 style="margin-bottom: 6px; font-size: .9rem;">Showcase Local Talent</h4>
+                  <p style="font-size: .85rem;">Highlight Benue's entrepreneurial talent through a nationally televised pitching series.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="section-label">The Process</div>
+        <h2 class="section-title">How <span>BBAN Works</span></h2>
+        <p class="section-lead">A transparent, structured process designed to give every entrepreneur a fair shot at funding and mentorship.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0;">
+        <div class="step fade-up d1">
+          <div class="step-num">01</div>
+          <h3>Apply</h3>
+          <p>Submit your startup application with your business idea, stage, and funding ask via the online form.</p>
+        </div>
+        <div class="step fade-up d2">
+          <div class="step-num">02</div>
+          <h3>Screen</h3>
+          <p>A selection committee reviews all applications and shortlists startups based on innovation, viability, and impact.</p>
+        </div>
+        <div class="step fade-up d3">
+          <div class="step-num">03</div>
+          <h3>Prepare</h3>
+          <p>Selected entrepreneurs receive pitch coaching, business model feedback, and presentation support from Hub 17 mentors.</p>
+        </div>
+        <div class="step fade-up d4">
+          <div class="step-num">04</div>
+          <h3>Pitch Live</h3>
+          <p>Pitch your startup to a panel of angels in a televised event — Shark Tank style, with a live audience.</p>
+        </div>
+        <div class="step fade-up d5">
+          <div class="step-num">05</div>
+          <h3>Funded &amp; Mentored</h3>
+          <p>Successful pitches receive seed capital, ongoing mentorship, and access to the full Hub 17 network.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANGEL BENEFITS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 50px;">
+        <div>
+          <div class="section-label">For Entrepreneurs</div>
+          <h2 class="section-title">What You <span>Gain as a Pitcher</span></h2>
+          <div class="gold-line"></div>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 24px;">
+            <li style="display: flex; gap: 12px;"><i class="fas fa-check-circle" style="color: var(--gold); margin-top: 2px;"></i><div><strong>Seed Funding</strong><p style="color: var(--text-muted); font-size: .85rem;">Direct investment from angels — from ₦500K to ₦5M+ depending on the deal.</p></div></li>
+            <li style="display: flex; gap: 12px;"><i class="fas fa-check-circle" style="color: var(--gold); margin-top: 2px;"></i><div><strong>Expert Mentorship</strong><p style="color: var(--text-muted); font-size: .85rem;">One-on-one guidance from seasoned business angels and industry experts.</p></div></li>
+            <li style="display: flex; gap: 12px;"><i class="fas fa-check-circle" style="color: var(--gold); margin-top: 2px;"></i><div><strong>Media Exposure</strong><p style="color: var(--text-muted); font-size: .85rem;">Your pitch airs on television and online, bringing national visibility to your brand.</p></div></li>
+            <li style="display: flex; gap: 12px;"><i class="fas fa-check-circle" style="color: var(--gold); margin-top: 2px;"></i><div><strong>Hub 17 Network Access</strong><p style="color: var(--text-muted); font-size: .85rem;">Access to Hub 17's full ecosystem — coworking, labs, training, and partnerships.</p></div></li>
+            <li style="display: flex; gap: 12px;"><i class="fas fa-check-circle" style="color: var(--gold); margin-top: 2px;"></i><div><strong>Business Model Refinement</strong><p style="color: var(--text-muted); font-size: .85rem;">Pre-pitch coaching including pitch deck review, financial modeling, and go-to-market strategy.</p></div></li>
+          </ul>
+        </div>
+        <div>
+          <div class="section-label">For Angels</div>
+          <h2 class="section-title">Benefits of Becoming an <span>Angel</span></h2>
+          <div class="gold-line"></div>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 24px;">
+            <li style="display: flex; gap: 12px;"><i class="fas fa-star" style="color: var(--gold); margin-top: 2px;"></i><div><strong>Curated Deal Flow</strong><p style="color: var(--text-muted); font-size: .85rem;">Pre-vetted, high-potential startups across multiple sectors, ready for investment.</p></div></li>
+            <li style="display: flex; gap: 12px;"><i class="fas fa-star" style="color: var(--gold); margin-top: 2px;"></i><div><strong>Network of Fellow Angels</strong><p style="color: var(--text-muted); font-size: .85rem;">Join a community of business leaders, industry experts, and fellow investors.</p></div></li>
+            <li style="display: flex; gap: 12px;"><i class="fas fa-star" style="color: var(--gold); margin-top: 2px;"></i><div><strong>Brand &amp; Media Recognition</strong><p style="color: var(--text-muted); font-size: .85rem;">Feature on BBAN's televised series and Hub 17's media channels.</p></div></li>
+            <li style="display: flex; gap: 12px;"><i class="fas fa-star" style="color: var(--gold); margin-top: 2px;"></i><div><strong>Impact Investment</strong><p style="color: var(--text-muted); font-size: .85rem;">Invest in Benue's economy while building a diversified early-stage portfolio.</p></div></li>
+            <li style="display: flex; gap: 12px;"><i class="fas fa-star" style="color: var(--gold); margin-top: 2px;"></i><div><strong>Annual Membership</strong><p style="color: var(--text-muted); font-size: .85rem;">Annual membership with renewal benefits including co-investment opportunities and exclusive events.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET THE ANGELS -->
+  <section class="section" id="angels">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="section-label">The Panel</div>
+        <h2 class="section-title">Meet the <span>Angels</span></h2>
+        <p class="section-lead">BBAN's business angels are experienced entrepreneurs, investors, and industry leaders who bring capital, networks, and expertise to the table.</p>
+      </div>
+      <div class="angels-grid">
+        <div class="angel-card">
+          <div class="angel-photo"><i class="fas fa-user"></i><div class="angel-badge">Lead Angel</div></div>
+          <div class="angel-info"><h4>Angel Profile 1</h4><div class="angel-sector">Technology &amp; Fintech</div><p>Serial entrepreneur with 15+ years in the tech sector. Founder of two successful startups and active investor in 20+ early-stage companies across West Africa.</p><div class="angel-socials"><a href="#" class="angel-social-btn"><i class="fab fa-linkedin-in"></i></a><a href="#" class="angel-social-btn"><i class="fab fa-twitter"></i></a></div></div>
+        </div>
+        <div class="angel-card">
+          <div class="angel-photo"><i class="fas fa-user"></i></div>
+          <div class="angel-info"><h4>Angel Profile 2</h4><div class="angel-sector">Agriculture &amp; Food Systems</div><p>Agribusiness pioneer with operations spanning 3 states. Passionate about building food security and empowering smallholder farmers through technology.</p><div class="angel-socials"><a href="#" class="angel-social-btn"><i class="fab fa-linkedin-in"></i></a></div></div>
+        </div>
+        <div class="angel-card">
+          <div class="angel-photo"><i class="fas fa-user"></i></div>
+          <div class="angel-info"><h4>Angel Profile 3</h4><div class="angel-sector">Finance &amp; Investment</div><p>Investment banker turned angel investor. Brings deep expertise in financial structuring, valuation, and portfolio management to BBAN startups.</p><div class="angel-socials"><a href="#" class="angel-social-btn"><i class="fab fa-linkedin-in"></i></a><a href="#" class="angel-social-btn"><i class="fab fa-twitter"></i></a></div></div>
+        </div>
+        <div class="angel-card">
+          <div class="angel-photo"><i class="fas fa-user"></i></div>
+          <div class="angel-info"><h4>Angel Profile 4</h4><div class="angel-sector">Healthcare &amp; Social Impact</div><p>Healthcare entrepreneur and impact investor with a focus on health-tech, women's empowerment, and last-mile service delivery innovation.</p><div class="angel-socials"><a href="#" class="angel-social-btn"><i class="fab fa-linkedin-in"></i></a></div></div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 40px;">
+        <p style="color: var(--text-muted); margin-bottom: 16px;">Interested in becoming a business angel?</p>
+        <a href="#apply" class="btn btn-gold"><i class="fas fa-star"></i> Apply to Join as Angel</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODES -->
+  <section class="section section-alt" id="episodes">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="section-label">Watch BBAN</div>
+        <h2 class="section-title">Latest <span>Episodes</span></h2>
+        <p class="section-lead">Catch up on past BBAN pitch sessions — from heartfelt stories to high-stakes negotiations.</p>
+      </div>
+      <div class="episodes-grid">
+        <div class="episode-card"><div class="episode-thumb"><i class="fas fa-video"></i><div class="play-btn"><div class="play-icon"><i class="fas fa-play"></i></div></div></div><div class="episode-info"><div class="ep-num">SEASON 3 · EP 4</div><h4>Three Startups, One Angel — An Unforgettable Night</h4><p class="ep-meta">March 2026 · 42 min</p></div></div>
+        <div class="episode-card"><div class="episode-thumb"><i class="fas fa-video"></i><div class="play-btn"><div class="play-icon"><i class="fas fa-play"></i></div></div></div><div class="episode-info"><div class="ep-num">SEASON 3 · EP 3</div><h4>The AgriTech Duo Who Won ₦3 Million</h4><p class="ep-meta">February 2026 · 38 min</p></div></div>
+        <div class="episode-card"><div class="episode-thumb"><i class="fas fa-video"></i><div class="play-btn"><div class="play-icon"><i class="fas fa-play"></i></div></div></div><div class="episode-info"><div class="ep-num">SEASON 3 · EP 2</div><h4>Health-Tech Startup Scores a 40% Equity Deal</h4><p class="ep-meta">January 2026 · 45 min</p></div></div>
+      </div>
+      <div style="text-align: center; margin-top: 35px;">
+        <a href="https://www.youtube.com/@Hub17Innovationspace/" target="_blank" class="btn btn-outline"><i class="fab fa-youtube"></i> Watch All Episodes on YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+      </div>
+      <div class="faq-wrap">
+        <div class="faq-item"><div class="faq-q"><h4>Who is eligible to apply to pitch at BBAN?</h4><i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">BBAN is open to entrepreneurs and startup founders based in Benue State or with significant operations in Benue. Your business can be at the nano, micro, or early startup stage. We welcome applications from all sectors — tech, agriculture, health, education, fashion, food, and more.</div></div></div>
+        <div class="faq-item"><div class="faq-q"><h4>How much funding can I receive from BBAN?</h4><i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Funding amounts vary by deal and are determined through negotiation between the entrepreneur and the angel(s). In past seasons, investments have ranged from ₦500,000 to over ₦5 million. Angels may offer equity stakes, convertible notes, or revenue-share arrangements.</div></div></div>
+        <div class="faq-item"><div class="faq-q"><h4>Does BBAN take equity from all applicants?</h4><i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">No. Only startups that successfully negotiate and close a deal with an angel will have equity involved. The specific terms — including equity percentage, funding amount, and repayment conditions — are negotiated individually between the entrepreneur and the angel.</div></div></div>
+        <div class="faq-item"><div class="faq-q"><h4>What is the application process like?</h4><i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">You submit an online application with a description of your business, your funding ask, and supporting materials. Our selection team reviews all applications and shortlists the strongest candidates. Shortlisted founders are then invited to Hub 17 for a coaching session, followed by the live pitch event.</div></div></div>
+        <div class="faq-item"><div class="faq-q"><h4>How do I become a BBAN Angel?</h4><i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Interested angels complete a membership application. There is an annual membership fee that grants access to BBAN's deal flow, exclusive events, co-investment opportunities, and the BBAN community. Angels are vetted to ensure they bring genuine value beyond capital — including mentorship, networks, and expertise.</div></div></div>
+        <div class="faq-item"><div class="faq-q"><h4>Is the pitch event televised?</h4><i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Yes! BBAN pitch sessions are filmed for broadcast on local television and distributed online through Hub 17's YouTube channel and social media platforms. This gives entrepreneurs significant media exposure even if they don't close a deal on the night.</div></div></div>
+        <div class="faq-item"><div class="faq-q"><h4>Can I apply even if my business is very early stage?</h4><i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Absolutely. BBAN is specifically designed to support nano and micro businesses as well as early-stage startups. You don't need a fully built product or revenue to apply — a clear idea, a compelling problem, and a credible team are what matter most at this stage.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY -->
+  <section class="section section-alt" id="apply">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="section-label">Applications Open</div>
+        <h2 class="section-title">Apply to <span>BBAN Season 4</span></h2>
+        <p class="section-lead">Ready to pitch? Or want to invest? Select your path below.</p>
+      </div>
+      <div class="apply-tabs">
+        <button class="apply-tab active" onclick="switchTab(this,'entrepreneur')">I'm an Entrepreneur</button>
+        <button class="apply-tab" onclick="switchTab(this,'angel')">I'm an Angel Investor</button>
+      </div>
+      <div class="apply-form-wrap" id="entrepreneur-form">
+        <h3 style="text-align: center; margin-bottom: 25px; font-size: 1.2rem;">Entrepreneur <span style="color: var(--gold);">Application</span></h3>
+        <div class="form-row">
+          <div class="form-group"><label>Full Name *</label><input type="text" class="form-control" placeholder="Your full name"></div>
+          <div class="form-group"><label>Email Address *</label><input type="email" class="form-control" placeholder="your@email.com"></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" class="form-control" placeholder="+234 ..."></div>
+          <div class="form-group"><label>Business Name *</label><input type="text" class="form-control" placeholder="Your startup / business name"></div>
+          <div class="form-group"><label>Industry / Sector *</label><select class="form-control"><option value="">Select sector</option><option>Technology</option><option>Agriculture</option><option>Healthcare</option><option>Education</option><option>Finance</option><option>Fashion &amp; Beauty</option><option>Food &amp; Beverage</option><option>Retail</option><option>Other</option></select></div>
+          <div class="form-group"><label>Funding Ask (₦)</label><input type="text" class="form-control" placeholder="e.g. 2,000,000"></div>
+        </div>
+        <div class="form-group" style="margin-bottom: 18px;"><label>Business Description *</label><textarea class="form-control" placeholder="Describe your business, the problem you solve, your solution, and current traction/stage..."></textarea></div>
+        <div class="form-group" style="margin-bottom: 25px;"><label>What will you use the funding for?</label><textarea class="form-control" style="min-height: 100px;" placeholder="Explain how you plan to deploy the investment..."></textarea></div>
+        <button class="btn btn-gold" style="width: 100%; justify-content: center;"><i class="fas fa-rocket"></i> Submit Pitch Application</button>
+      </div>
+      <div class="apply-form-wrap" id="angel-form" style="display: none;">
+        <h3 style="text-align: center; margin-bottom: 25px; font-size: 1.2rem;">Angel Investor <span style="color: var(--gold);">Application</span></h3>
+        <div class="form-row">
+          <div class="form-group"><label>Full Name *</label><input type="text" class="form-control" placeholder="Your full name"></div>
+          <div class="form-group"><label>Email Address *</label><input type="email" class="form-control" placeholder="your@email.com"></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" class="form-control" placeholder="+234 ..."></div>
+          <div class="form-group"><label>LinkedIn Profile</label><input type="url" class="form-control" placeholder="https://linkedin.com/in/..."></div>
+          <div class="form-group"><label>Industry Expertise</label><input type="text" class="form-control" placeholder="e.g. Tech, Agriculture, Finance..."></div>
+          <div class="form-group"><label>Investment Range (₦)</label><select class="form-control"><option>500K – 1M</option><option>1M – 3M</option><option>3M – 5M</option><option>5M+</option></select></div>
+        </div>
+        <div class="form-group" style="margin-bottom: 18px;"><label>About You &amp; Why BBAN?</label><textarea class="form-control" placeholder="Tell us about your background, investment experience, and why you want to join BBAN as an angel..."></textarea></div>
+        <div class="form-group" style="margin-bottom: 25px;"><label>Sectors You're Interested In</label><input type="text" class="form-control" placeholder="e.g. AgriTech, HealthTech, EdTech..."></div>
+        <button class="btn btn-gold" style="width: 100%; justify-content: center;"><i class="fas fa-star"></i> Submit Angel Application</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <div class="container" style="text-align: center;">
+      <h2 style="margin-bottom: 14px;">Still Have Questions?</h2>
+      <p style="color: var(--text-muted); margin-bottom: 25px; font-size: .9rem;">Our team is ready to help. Reach out and we'll get back to you within 24 hours.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="contact.html" class="btn btn-gold"><i class="fas fa-envelope"></i> Contact Us</a>
+        <a href="index.html" class="btn btn-outline"><i class="fas fa-home"></i> Back to Hub 17</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BBAN FOOTER -->
+  <div class="bban-footer">
+    <div class="bban-footer-copy">&copy; 2026 Benue Business Angels Network — A Hub 17 Initiative. All rights reserved.</div>
+    <div class="bban-footer-links">
+      <a href="index.html">Hub 17 Main Site</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(btn, type) {
+      document.querySelectorAll('.apply-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('entrepreneur-form').style.display = type === 'entrepreneur' ? 'block' : 'none';
+      document.getElementById('angel-form').style.display = type === 'angel' ? 'block' : 'none';
+    }
+
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', function() {
+        item.classList.toggle('open');
+      });
+    });
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.style.animationPlayState = 'running';
+      });
+    }, { threshold: .1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      obs.observe(el);
+    });
+  </script>
+</body>
+</html>

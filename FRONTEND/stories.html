@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stories of Impact | HUB 17 Innovation Space</title>
+<meta name="description" content="Read inspiring stories of how Hub 17 is changing lives and communities through innovation and entrepreneurship.">
+<meta name="author" content="HUB 17 Innovation Space">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/footer.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hidden}
+/* PAGE HERO */
+.page-hero{position:relative;min-height:420px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:120px 20px 80px}
+.page-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(0.25)}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.85),rgba(20,10,0,.7))}
+.page-hero-content{position:relative;z-index:2;max-width:800px}
+.page-hero-tag{display:inline-block;background:rgba(255,215,0,.15);color:#FFD700;border:1px solid rgba(255,215,0,.3);padding:7px 22px;border-radius:30px;font-size:.85rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+.page-hero h1{font-size:clamp(2rem,5vw,3.8rem);font-weight:800;line-height:1.1;margin-bottom:18px}
+.page-hero h1 span{color:#FFD700}
+.page-hero p{font-size:1.15rem;color:rgba(255,255,255,.8);max-width:600px;margin:0 auto 28px;line-height:1.7}
+.breadcrumb{display:flex;gap:10px;align-items:center;justify-content:center;font-size:.9rem;color:rgba(255,255,255,.6)}
+.breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .3s}
+.breadcrumb a:hover{color:#FFD700}
+.breadcrumb i{font-size:.7rem;color:rgba(255,255,255,.3)}
+/* SECTIONS */
+.section{padding:90px 0}
+.section-alt{background:#111}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.section-label{display:inline-block;background:rgba(255,215,0,.1);color:#FFD700;border:1px solid rgba(255,215,0,.25);padding:6px 20px;border-radius:30px;font-size:.8rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;margin-bottom:16px}
+.section-title span{color:#FFD700}
+.section-lead{color:rgba(255,255,255,.75);font-size:1.05rem;line-height:1.7;max-width:680px}
+.section-header-center{text-align:center;margin-bottom:60px}
+.section-header-center .section-lead{margin:0 auto}
+/* CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:36px;transition:all .35s ease;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#FFD700,#FFA500);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.card:hover{border-color:rgba(255,215,0,.3);background:rgba(255,215,0,.04);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.card:hover::before{transform:scaleX(1)}
+.card-icon{width:60px;height:60px;border-radius:14px;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.2);display:flex;align-items:center;justify-content:center;color:#FFD700;font-size:1.5rem;margin-bottom:22px;transition:all .3s}
+.card:hover .card-icon{background:rgba(255,215,0,.2);transform:rotate(5deg)}
+.card h3{font-size:1.2rem;font-weight:600;margin-bottom:12px;color:#fff}
+.card p{color:rgba(255,255,255,.7);font-size:.95rem;line-height:1.65}
+/* STAT ROW */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;text-align:center}
+.stat-item{padding:40px 20px;background:rgba(255,215,0,.04);border:1px solid rgba(255,215,0,.12);border-radius:16px}
+.stat-number{font-size:3rem;font-weight:800;color:#FFD700;line-height:1}
+.stat-label{color:rgba(255,255,255,.7);font-size:.95rem;margin-top:8px}
+/* IMAGE SLOT */
+.img-slot{width:100%;height:100%;object-fit:cover;border-radius:12px;display:block}
+.img-placeholder{background:linear-gradient(135deg,#1a1a1a,#222);border:2px dashed rgba(255,215,0,.2);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:rgba(255,215,0,.5);min-height:300px;font-size:2.5rem}
+.img-placeholder span{font-size:.9rem;color:rgba(255,255,255,.3);font-family:monospace}
+/* SPLIT LAYOUT */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media(max-width:768px){.split{grid-template-columns:1fr;gap:40px}}
+/* BUTTON */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:30px;font-weight:600;font-size:.95rem;cursor:pointer;transition:all .3s;text-decoration:none;border:none}
+.btn-gold{background:linear-gradient(135deg,#FFD700,#FFA500);color:#000}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(255,215,0,.3)}
+.btn-outline{background:transparent;border:2px solid #FFD700;color:#FFD700}
+.btn-outline:hover{background:#FFD700;color:#000}
+/* TABLE */
+.styled-table{width:100%;border-collapse:collapse}
+.styled-table th{background:rgba(255,215,0,.1);color:#FFD700;padding:14px 20px;text-align:left;font-size:.9rem;letter-spacing:.5px}
+.styled-table td{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.8);font-size:.95rem}
+.styled-table tr:hover td{background:rgba(255,215,0,.03)}
+/* TAG */
+.tag{display:inline-block;padding:4px 14px;border-radius:20px;font-size:.78rem;font-weight:600}
+.tag-gold{background:rgba(255,215,0,.15);color:#FFD700;border:1px solid rgba(255,215,0,.3)}
+.tag-green{background:rgba(50,205,50,.12);color:#6fdc6f;border:1px solid rgba(50,205,50,.25)}
+.tag-blue{background:rgba(100,149,237,.12);color:#91b4f5;border:1px solid rgba(100,149,237,.2)}
+/* DIVIDER */
+.gold-divider{height:2px;background:linear-gradient(90deg,transparent,#FFD700,transparent);margin:20px 0}
+/* ACCORDION */
+.accordion-item{border:1px solid rgba(255,255,255,.08);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.accordion-header{padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.03);transition:background .3s}
+.accordion-header:hover{background:rgba(255,215,0,.06)}
+.accordion-header h4{font-size:1rem;font-weight:600;color:#fff}
+.accordion-header i{color:#FFD700;transition:transform .3s}
+.accordion-header.open i{transform:rotate(180deg)}
+.accordion-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.accordion-body.open{max-height:400px}
+.accordion-body-inner{padding:20px 24px;color:rgba(255,255,255,.75);font-size:.95rem;line-height:1.7}
+/* FORM */
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.form-group label{display:block;font-size:.9rem;color:rgba(255,255,255,.7);margin-bottom:8px;font-weight:500}
+.form-control{width:100%;padding:14px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:#fff;font-size:.95rem;font-family:'Poppins',sans-serif;transition:all .3s}
+.form-control:focus{outline:none;border-color:#FFD700;background:rgba(255,215,0,.04)}
+.form-control::placeholder{color:rgba(255,255,255,.3)}
+textarea.form-control{min-height:140px;resize:vertical}
+/* TIMELINE */
+.timeline{position:relative;padding-left:40px}
+.timeline::before{content:'';position:absolute;left:16px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#FFD700,transparent)}
+.timeline-item{position:relative;margin-bottom:40px}
+.timeline-dot{position:absolute;left:-32px;top:4px;width:14px;height:14px;border-radius:50%;background:#FFD700;border:3px solid #0a0a0a;box-shadow:0 0 0 3px rgba(255,215,0,.3)}
+.timeline-item h4{font-size:1.05rem;font-weight:600;margin-bottom:6px;color:#FFD700}
+.timeline-item p{color:rgba(255,255,255,.75);font-size:.95rem;line-height:1.6}
+/* ANIMATE */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .7s ease forwards}
+.delay-1{animation-delay:.1s;opacity:0}
+.delay-2{animation-delay:.2s;opacity:0}
+.delay-3{animation-delay:.3s;opacity:0}
+.delay-4{animation-delay:.4s;opacity:0}
+.delay-5{animation-delay:.5s;opacity:0}
+</style>
+</head>
+<body>
+<nav id="top-nav">
+  <div class="top-nav-container">
+    <div class="social-section">
+      <div class="social-item facebook"><a href="https://www.facebook.com/Hub17Innovationspace/" class="social-link" target="_blank"><div class="social-icon"><i class="fab fa-facebook-f"></i></div><span class="social-name">Facebook</span></a></div>
+      <div class="social-item twitter"><a href="https://ng.linkedin.com/company/hub-17-innovation-space/" class="social-link" target="_blank"><div class="social-icon"><i class="fab fa-linkedin-in"></i></div><span class="social-name">Linkedin</span></a></div>
+      <div class="social-item instagram"><a href="https://www.instagram.com/hubseventeen/" class="social-link" target="_blank"><div class="social-icon"><i class="fab fa-instagram"></i></div><span class="social-name">Instagram</span></a></div>
+      <div class="social-item youtube"><a href="https://www.youtube.com/@Hub17Innovationspace/" class="social-link" target="_blank"><div class="social-icon"><i class="fab fa-youtube"></i></div><span class="social-name">YouTube</span></a></div>
+    </div>
+    <div class="contact-section">
+      <a href="tel:+2348066459317" class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><span class="contact-text">+234 806 645 9317</span></a>
+      <a href="mailto:hubseventeen17@gmail.com" class="contact-item"><div class="contact-icon"><i class="far fa-envelope"></i></div><span class="contact-text">hubseventeen17@gmail.com</span></a>
+      <a href="https://maps.app.goo.gl/mLJVpGeMRzNZ5DAL7" class="contact-item" target="_blank"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><span class="contact-text">Makurdi, Benue State, Nigeria.</span></a>
+    </div>
+  </div>
+</nav>
+<nav id="main-nav">
+  <div class="main-nav-container">
+    <div class="logo-section"><a href="index.html"><img src="img/logo.png" alt="HUB 17 logo" class="logo"></a></div>
+    <ul class="main-menu">
+      <li class="menu-item"><a href="about.html" class="menu-link"><span>Who We Are</span><i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="about.html" class="dropdown-item">Brief About Hub17</a>
+          <a href="vision.html" class="dropdown-item">Vision &amp; Mission</a>
+          <a href="teams.html" class="dropdown-item">Our People</a>
+          <a href="networks.html" class="dropdown-item">Networks and Coalitions</a>
+          <a href="partner.html" class="dropdown-item">Partners and Member Organisations</a>
+        </div>
+      </li>
+      <li class="menu-item"><a href="our-work.html" class="menu-link"><span>Our Work</span><i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="our-work.html" class="dropdown-item">Projects</a>
+          <a href="programs.html" class="dropdown-item">Programs &amp; Services</a>
+          <a href="volunteer.html" class="dropdown-item">Volunteer and Mentorship</a>
+          <a href="volunteer.html#internship" class="dropdown-item">Internship Services</a>
+        </div>
+      </li>
+      <li class="menu-item"><a href="resources.html" class="menu-link"><span>Resources</span><i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="resources.html#strategic" class="dropdown-item">Strategic Plan</a>
+          <a href="resources.html#publications" class="dropdown-item">Publications</a>
+          <a href="resources.html#reports" class="dropdown-item">Reports</a>
+          <a href="resources.html#manuals" class="dropdown-item">Training Manuals</a>
+        </div>
+      </li>
+      <li class="menu-item"><a href="stories.html" class="menu-link"><span>Stories of Impact</span></a></li>
+      <li class="menu-item"><a href="contact.html" class="menu-link"><span>Contact</span><i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="location.html" class="dropdown-item">Our Office Locations</a>
+          <a href="contact.html" class="dropdown-item">Get in Touch</a>
+          <a href="careers.html" class="dropdown-item">Career Opportunities</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-actions">
+      <button class="search-btn"><i class="fas fa-search"></i></button>
+      <button class="donate-btn">Donate</button>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-item"><a href="about.html" class="mobile-menu-link">Who We Are<i class="fas fa-chevron-down"></i></a>
+    <div class="mobile-dropdown">
+      <a href="about.html" class="mobile-dropdown-item">Brief About Hub17</a>
+      <a href="vision.html" class="mobile-dropdown-item">Vision &amp; Mission</a>
+      <a href="teams.html" class="mobile-dropdown-item">Our People</a>
+      <a href="networks.html" class="mobile-dropdown-item">Networks and Coalitions</a>
+      <a href="partner.html" class="mobile-dropdown-item">Partners and Member Organisations</a>
+    </div>
+  </div>
+  <div class="mobile-menu-item"><a href="our-work.html" class="mobile-menu-link">Our Work<i class="fas fa-chevron-down"></i></a>
+    <div class="mobile-dropdown">
+      <a href="our-work.html" class="mobile-dropdown-item">Projects</a>
+      <a href="programs.html" class="mobile-dropdown-item">Programs &amp; Services</a>
+      <a href="volunteer.html" class="mobile-dropdown-item">Volunteer and Mentorship</a>
+      <a href="volunteer.html#internship" class="mobile-dropdown-item">Internship Services</a>
+    </div>
+  </div>
+  <div class="mobile-menu-item"><a href="resources.html" class="mobile-menu-link">Resources<i class="fas fa-chevron-down"></i></a>
+    <div class="mobile-dropdown">
+      <a href="resources.html#strategic" class="mobile-dropdown-item">Strategic Plan</a>
+      <a href="resources.html#publications" class="mobile-dropdown-item">Publications</a>
+      <a href="resources.html#reports" class="mobile-dropdown-item">Reports</a>
+      <a href="resources.html#manuals" class="mobile-dropdown-item">Training Manuals</a>
+    </div>
+  </div>
+  <div class="mobile-menu-item"><a href="stories.html" class="mobile-menu-link">Stories of Impact</a></div>
+  <div class="mobile-menu-item"><a href="contact.html" class="mobile-menu-link">Contact<i class="fas fa-chevron-down"></i></a>
+    <div class="mobile-dropdown">
+      <a href="location.html" class="mobile-dropdown-item">Our Office Locations</a>
+      <a href="contact.html" class="mobile-dropdown-item">Get in Touch</a>
+      <a href="careers.html" class="mobile-dropdown-item">Career Opportunities</a>
+    </div>
+  </div>
+  <div class="mobile-menu-actions">
+    <button class="mobile-search-btn"><i class="fas fa-search"></i> Search</button>
+    <button class="mobile-donate-btn">Donate Now</button>
+  </div>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content fade-up">
+    <div class="page-hero-tag">Stories of Impact</div>
+    <h1>Real People. <span>Real Change.</span></h1>
+    <p>Every number we share represents a life changed, a business launched, a community transformed. These are their stories.</p>
+    <nav class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>Stories of Impact</span></nav>
+  </div>
+</div>
+
+<section class="section" style="padding-bottom:0">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-number">3,200+</div><div class="stat-label">Beneficiaries Reached</div></div>
+      <div class="stat-item"><div class="stat-number">180+</div><div class="stat-label">Startups Supported</div></div>
+      <div class="stat-item"><div class="stat-number">₦150M+</div><div class="stat-label">Investment Facilitated</div></div>
+      <div class="stat-item"><div class="stat-number">12</div><div class="stat-label">Countries Impacted</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Story -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Featured Story</div>
+    <div style="background:linear-gradient(135deg,rgba(255,215,0,.08),rgba(0,0,0,0));border:1px solid rgba(255,215,0,.2);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:400px" class="split">
+      <div class="img-placeholder" style="border-radius:0"><i class="fas fa-user-circle"></i><span>[Featured Story Photo]</span></div>
+      <div style="padding:50px">
+        <span class="tag tag-gold" style="margin-bottom:20px;display:inline-block">Agriculture · SDG 2</span>
+        <h2 style="font-size:1.8rem;margin-bottom:16px;line-height:1.3">From Subsistence Farmer to <span style="color:#FFD700">AgriTech Innovator</span></h2>
+        <p style="color:rgba(255,255,255,.8);line-height:1.8;margin-bottom:20px">"Hub 17 gave me more than training — it gave me a new way of seeing what's possible on my farm. Today I supply organic fertilizer to 300 farmers across three LGAs." — Amaka O., Benue State</p>
+        <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.7;margin-bottom:28px">Amaka joined Hub 17's AgriTech Lab in 2022 with no prior experience in technology. Today, she runs a thriving agribusiness, employs 5 people, and has been featured in national media.</p>
+        <a href="#" class="btn btn-gold"><i class="fas fa-book-open"></i> Read Full Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Story Grid -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-label">Community Stories</div>
+      <h2 class="section-title">More <span>Voices of Change</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px">
+      
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden">
+  <div class="img-placeholder" style="min-height:200px;border-radius:0"><i class="fas fa-laptop"></i><span>[Story Image]</span></div>
+  <div style="padding:24px"><span class="tag tag-blue" style="margin-bottom:12px;display:inline-block">Digital Skills</span><h3 style="margin-bottom:10px;font-size:1.05rem">From Market Stall to Digital Agency</h3><p style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:1.6;margin-bottom:18px">After completing Hub 17's digital marketing training, Blessing transformed her roadside print shop into a thriving online agency serving clients across Nigeria.</p><a href="#" class="btn btn-outline" style="font-size:.82rem;padding:9px 18px">Read More</a></div>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden">
+  <div class="img-placeholder" style="min-height:200px;border-radius:0"><i class="fas fa-seedling"></i><span>[Story Image]</span></div>
+  <div style="padding:24px"><span class="tag tag-green" style="margin-bottom:12px;display:inline-block">Agriculture</span><h3 style="margin-bottom:10px;font-size:1.05rem">Growing Smart in Benue</h3><p style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:1.6;margin-bottom:18px">Emmanuel applied climate-smart techniques from Hub 17's AgriTech lab and tripled his cassava yield in one season while reducing water use by 40%.</p><a href="#" class="btn btn-outline" style="font-size:.82rem;padding:9px 18px">Read More</a></div>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden">
+  <div class="img-placeholder" style="min-height:200px;border-radius:0"><i class="fas fa-female"></i><span>[Story Image]</span></div>
+  <div style="padding:24px"><span class="tag tag-gold" style="margin-bottom:12px;display:inline-block">Women in Business</span><h3 style="margin-bottom:10px;font-size:1.05rem">The She Project: 12 Months of Transformation</h3><p style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:1.6;margin-bottom:18px">20 women entrepreneurs from the Benue She Project cohort collectively generated over ₦18 million in revenue within a year of completing the program.</p><a href="#" class="btn btn-outline" style="font-size:.82rem;padding:9px 18px">Read More</a></div>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden">
+  <div class="img-placeholder" style="min-height:200px;border-radius:0"><i class="fas fa-rocket"></i><span>[Story Image]</span></div>
+  <div style="padding:24px"><span class="tag tag-blue" style="margin-bottom:12px;display:inline-block">Startup</span><h3 style="margin-bottom:10px;font-size:1.05rem">From Pitch Night to Funded Startup</h3><p style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:1.6;margin-bottom:18px">After pitching to the Benue Business Angels Network, Terver secured ₦2.5 million in seed funding and has since grown his edtech startup to 3 states.</p><a href="#" class="btn btn-outline" style="font-size:.82rem;padding:9px 18px">Read More</a></div>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden">
+  <div class="img-placeholder" style="min-height:200px;border-radius:0"><i class="fas fa-graduation-cap"></i><span>[Story Image]</span></div>
+  <div style="padding:24px"><span class="tag tag-gold" style="margin-bottom:12px;display:inline-block">Youth</span><h3 style="margin-bottom:10px;font-size:1.05rem">A 19-Year-Old's Journey into Tech</h3><p style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:1.6;margin-bottom:18px">With no prior coding knowledge, Ngozi completed Hub 17's web development bootcamp and landed a junior developer role at a Lagos fintech firm within 6 months.</p><a href="#" class="btn btn-outline" style="font-size:.82rem;padding:9px 18px">Read More</a></div>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden">
+  <div class="img-placeholder" style="min-height:200px;border-radius:0"><i class="fas fa-tractor"></i><span>[Story Image]</span></div>
+  <div style="padding:24px"><span class="tag tag-green" style="margin-bottom:12px;display:inline-block">AgriTech</span><h3 style="margin-bottom:10px;font-size:1.05rem">Machine Fabrication Changes Farming</h3><p style="color:rgba(255,255,255,.65);font-size:.88rem;line-height:1.6;margin-bottom:18px">The agricultural machine fabrication program helped 3 young engineers build and sell locally-made farm equipment, creating jobs and reducing farming costs.</p><a href="#" class="btn btn-outline" style="font-size:.82rem;padding:9px 18px">Read More</a></div>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-label">Testimonials</div>
+      <h2 class="section-title">What People <span>Say About Us</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px">
+      
+<div style="background:rgba(255,215,0,.04);border:1px solid rgba(255,215,0,.1);border-radius:16px;padding:36px">
+  <div style="color:#FFD700;font-size:1.5rem;margin-bottom:16px">★★★★★</div>
+  <p style="color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.75;font-style:italic;margin-bottom:24px">"Hub 17 is one of the most impactful innovation institutions in North Central Nigeria. Their evidence-based approach to entrepreneurship development is a model for the entire continent."</p>
+  <div style="display:flex;align-items:center;gap:14px"><div style="width:44px;height:44px;border-radius:50%;background:rgba(255,215,0,.1);display:flex;align-items:center;justify-content:center;color:#FFD700"><i class="fas fa-user"></i></div><div><strong style="display:block;font-size:.95rem">Dr. Sarah Agba</strong><span style="color:rgba(255,255,255,.5);font-size:.82rem">University Lecturer & Hub 17 Research Partner</span></div></div>
+</div>
+<div style="background:rgba(255,215,0,.04);border:1px solid rgba(255,215,0,.1);border-radius:16px;padding:36px">
+  <div style="color:#FFD700;font-size:1.5rem;margin-bottom:16px">★★★★★</div>
+  <p style="color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.75;font-style:italic;margin-bottom:24px">"The mentorship and investor connections from BBAN were game-changing. I walked in with an idea and walked out with funding, a business plan, and a network."</p>
+  <div style="display:flex;align-items:center;gap:14px"><div style="width:44px;height:44px;border-radius:50%;background:rgba(255,215,0,.1);display:flex;align-items:center;justify-content:center;color:#FFD700"><i class="fas fa-user"></i></div><div><strong style="display:block;font-size:.95rem">Ibrahim M.</strong><span style="color:rgba(255,255,255,.5);font-size:.82rem">Startup Founder, BBAN Cohort 2</span></div></div>
+</div>
+<div style="background:rgba(255,215,0,.04);border:1px solid rgba(255,215,0,.1);border-radius:16px;padding:36px">
+  <div style="color:#FFD700;font-size:1.5rem;margin-bottom:16px">★★★★★</div>
+  <p style="color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.75;font-style:italic;margin-bottom:24px">"Before Hub 17, I had no idea what digital marketing was. Now I run social media campaigns for businesses and earn more than I ever did before."</p>
+  <div style="display:flex;align-items:center;gap:14px"><div style="width:44px;height:44px;border-radius:50%;background:rgba(255,215,0,.1);display:flex;align-items:center;justify-content:center;color:#FFD700"><i class="fas fa-user"></i></div><div><strong style="display:block;font-size:.95rem">Comfort T.</strong><span style="color:rgba(255,255,255,.5);font-size:.82rem">Digital Skills Graduate, 2023</span></div></div>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" style="text-align:center">
+  <div class="container">
+    <h2 class="section-title">Share <span>Your Story</span></h2>
+    <p class="section-lead" style="margin:16px auto 36px">Have you been part of a Hub 17 program? We'd love to feature your journey and inspire others.</p>
+    <a href="contact.html" class="btn btn-gold"><i class="fas fa-pen"></i> Submit Your Story</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-logo"><img src="img/logo.png" alt="HUB 17 Logo"></div>
+          <p class="footer-description">HUB 17 is an innovation space dedicated to addressing Sustainable Development Goals through collaborative, community-driven solutions across Africa and beyond.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/Hub17Innovationspace/" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/hubseventeen/" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://ng.linkedin.com/company/hub-17-innovation-space" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@Hub17Innovationspace/" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About HUB 17</a></li>
+            <li><a href="stories.html"><i class="fas fa-chevron-right"></i> Stories of Impact</a></li>
+            <li><a href="programs.html"><i class="fas fa-chevron-right"></i> Programs &amp; Services</a></li>
+            <li><a href="volunteer.html"><i class="fas fa-chevron-right"></i> Get Involved</a></li>
+            <li><a href="news.html"><i class="fas fa-chevron-right"></i> News &amp; Updates</a></li>
+            <li><a href="careers.html"><i class="fas fa-chevron-right"></i> Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul class="contact-info">
+            <li><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-details"><h4>Hub 17 Innovation Space</h4><p>Tony Ijohor way, 7th Avenue, off Ugbokolo Street, High Level, Makurdi, Benue, Nigeria</p></div></li>
+            <li><div class="contact-icon"><i class="fas fa-phone"></i></div><div class="contact-details"><h4>Phone</h4><a href="tel:+2348066459317">+234 806 645 9317</a></div></li>
+            <li><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-details"><h4>Email</h4><a href="mailto:hubseventeen17@gmail.com">hubseventeen17@gmail.com</a></div></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Stay Updated</h3>
+          <div class="newsletter-form">
+            <p>Subscribe to our newsletter for the latest updates on innovation projects and sustainable development initiatives.</p>
+            <form id="newsletterForm">
+              <div class="input-group">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+              </div>
+            </form>
+            <p class="form-note">We respect your privacy. Unsubscribe at any time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="bottom-container">
+      <div class="copyright">&copy; <span id="currentYear">2026</span> HUB 17 Innovation Space. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></div>
+      <div class="footer-legal">
+        <div class="country-flags">
+          <img src="https://flagcdn.com/w40/ng.png" alt="Nigeria" class="country-flag" title="Nigeria">
+          <img src="https://flagcdn.com/w40/gh.png" alt="Ghana" class="country-flag" title="Ghana">
+          <img src="https://flagcdn.com/w40/ke.png" alt="Kenya" class="country-flag" title="Kenya">
+          <img src="https://flagcdn.com/w40/za.png" alt="South Africa" class="country-flag" title="South Africa">
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+<script src="js/scripts.js"></script>
+<script src="js/footer.js"></script>
+<script>
+  document.querySelectorAll('.accordion-header').forEach(h=>{h.addEventListener('click',function(){const b=this.nextElementSibling;this.classList.toggle('open');b.classList.toggle('open')})});
+</script>
+</body></html>
