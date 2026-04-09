@@ -440,154 +440,56 @@
     </div>
 
     <!-- Hero Section -->
-    <!-- Hero Carousel Section -->
-    <section class="hero-section">
-        <!-- Carousel Slides -->
-        <div class="carousel-slides">
-            <!-- Slide 1 -->
-            <div class="slide slide-1 active">
-                <div class="slide-content">
-                    <div class="text-content">
-                        <h1>Building Sustainable Communities</h1>
-                        <p>Through innovative environmental programs and community engagement, we're creating lasting change across Africa.</p>
-                        <a href="#" class="cta-button">Explore Our Work</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 2 -->
-            <div class="slide slide-2">
-                <div class="slide-content">
-                    <div class="text-content">
-                        <h2>Climate Resilience Initiatives</h2>
-                        <p>Helping communities adapt to climate change through sustainable practices and environmental conservation.</p>
-                        <a href="#" class="cta-button">Learn About Climate Action</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 3 -->
-            <div class="slide slide-3">
-                <div class="slide-content">
-                    <div class="text-content">
-                        <h1>Women Leading Environmental Change</h1>
-                        <p>Empowering women as environmental stewards to drive sustainable development in their communities.</p>
-                        <a href="#" class="cta-button">Support Women Leaders</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 4 -->
-            <div class="slide slide-4">
-                <div class="slide-content">
-                    <div class="text-content">
-                        <h2>Clean Water Access Projects</h2>
-                        <p>Providing sustainable water solutions to underserved communities across multiple African nations.</p>
-                        <a href="#" class="cta-button">View Water Projects</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 5 -->
-            <div class="slide slide-5">
-                <div class="slide-content">
-                    <div class="text-content">
-                        <h1>Environmental Education Programs</h1>
-                        <p>Teaching sustainable practices to the next generation of environmental leaders and activists.</p>
-                        <a href="#" class="cta-button">Join Our Programs</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 6 -->
-            <div class="slide slide-6">
-                <div class="slide-content">
-                    <div class="text-content">
-                        <h2>Renewable Energy Solutions</h2>
-                        <p>Implementing solar and wind energy projects to reduce carbon footprints and create sustainable power.</p>
-                        <a href="#" class="cta-button">Explore Energy Projects</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 7 -->
-            <div class="slide slide-7">
-                <div class="slide-content">
-                    <div class="text-content">
-                        <h1>Forest Conservation & Reforestation</h1>
-                        <p>Protecting existing forests and planting new trees to combat deforestation and climate change.</p>
-                        <a href="#" class="cta-button">Support Reforestation</a>
-                    </div>
-                </div>
-            </div>
+<section class="hero-section" id="heroSection">
+ 
+  <!-- Slides Container -->
+  <div class="carousel-slides" id="carouselSlides"></div>
+ 
+  <!-- Circular Navigation -->
+  <div class="circular-nav" id="circularNav">
+    <div class="circle-container">
+ 
+      <!-- SVG rings behind dots -->
+      <svg class="ring-svg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="160" cy="160" r="148" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <circle cx="160" cy="160" r="120" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <circle id="activeRing" cx="160" cy="160" r="148"
+          fill="none" stroke="#ffffff" stroke-width="2"
+          stroke-dasharray="24 932" stroke-dashoffset="0" stroke-linecap="round"
+          transform="rotate(-90 160 160)"
+          style="transition: stroke 0.5s ease, stroke-dashoffset 0.5s ease"/>
+      </svg>
+ 
+      <!-- Nav dots injected by JS -->
+      <div class="nav-dots-wrap" id="navDotsWrap"></div>
+ 
+      <!-- Center display -->
+      <div class="center-display">
+        <div class="center-icon" id="centerIcon"></div>
+        <div class="center-nums">
+          <span id="centerCur">01</span>
+          <span class="c-sep">/17</span>
         </div>
-        
-        <!-- Circular Navigation (Speedometer) -->
-        <div class="circular-nav">
-            <div class="circle-container">
-                <div class="main-circle"></div>
-                
-                <!-- Navigation Items (7 items for 7 slides) -->
-                <div class="nav-item active" data-slide="0">
-                    <span>01</span>
-                    <div class="nav-label">Sustainable Communities</div>
-                </div>
-                <div class="nav-item" data-slide="1">
-                    <span>02</span>
-                    <div class="nav-label">Climate Resilience</div>
-                </div>
-                <div class="nav-item" data-slide="2">
-                    <span>03</span>
-                    <div class="nav-label">Women Empowerment</div>
-                </div>
-                <div class="nav-item" data-slide="3">
-                    <span>04</span>
-                    <div class="nav-label">Clean Water</div>
-                </div>
-                <div class="nav-item" data-slide="4">
-                    <span>05</span>
-                    <div class="nav-label">Education</div>
-                </div>
-                <div class="nav-item" data-slide="5">
-                    <span>06</span>
-                    <div class="nav-label">Renewable Energy</div>
-                </div>
-                <div class="nav-item" data-slide="6">
-                    <span>07</span>
-                    <div class="nav-label">Forest Conservation</div>
-                </div>
-                
-                <!-- Center indicator -->
-                <div class="center-indicator">
-                    <span id="currentSlide">1</span>/<span id="totalSlides">7</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Progress Bar -->
-        <div class="progress-container">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
-        
-        <!-- Carousel Controls -->
-        <div class="carousel-controls">
-            <button class="control-btn prev-btn">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            
-            <div class="slide-counter">
-                <span id="currentCounter">01</span> / <span id="totalCounter">07</span>
-            </div>
-            
-            <button class="control-btn next-btn">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            
-            <button class="control-btn pause-btn">
-                <i class="fas fa-pause"></i>
-            </button>
-        </div>
-    </section>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Bottom Controls -->
+  <div class="carousel-controls">
+    <button class="ctrl-btn" id="prevBtn" aria-label="Previous">&#8592;</button>
+    <div class="slide-counter">
+      <span id="counterCur">01</span>&nbsp;<span style="opacity:0.5">/</span>&nbsp;<span>17</span>
+    </div>
+    <button class="ctrl-btn" id="nextBtn" aria-label="Next">&#8594;</button>
+    <button class="ctrl-btn" id="pauseBtn" aria-label="Pause">&#9646;&#9646;</button>
+  </div>
+ 
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+ 
+</section>
 
 
 <!-- === ABOUT SECTION === -->
