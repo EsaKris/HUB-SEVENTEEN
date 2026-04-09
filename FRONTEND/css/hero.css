@@ -426,7 +426,7 @@ body {
   .carousel-controls { bottom: 20px; gap: 10px; }
   .ctrl-btn { width: 40px; height: 40px; font-size: 15px; }
   .sdg-number-display { font-size: 5rem; }
-}
+
 
 @media (max-width: 480px) {
   .slide-content h2 { font-size: 1.6rem; }
